@@ -23,8 +23,38 @@ body{background:var(--forest);color:var(--text);font-family:"Jost",sans-serif;fo
 .divider{display:flex;align-items:center;gap:1.5rem;padding:0 max(2rem,8vw);color:var(--moss)}
 .divider-line{flex:1;height:1px;background:var(--moss);opacity:.3}
 
+
+
+/* IMAGE BLEND */
+.nav-brand img{display:block}
+.hero-emblem{display:flex;justify-content:center;margin-bottom:.5rem}
+
+/* BOTANICAL ACCENTS */
+body::before{
+  content:"";
+  position:fixed;
+  left:0;top:0;bottom:0;
+  width:60px;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='400' viewBox='0 0 60 400'%3E%3Cellipse cx='15' cy='80' rx='12' ry='20' fill='none' stroke='%233a5432' stroke-width='1' opacity='0.4' transform='rotate(-20,15,80)'/%3E%3Cellipse cx='25' cy='160' rx='10' ry='18' fill='none' stroke='%236f9562' stroke-width='1' opacity='0.3' transform='rotate(15,25,160)'/%3E%3Cellipse cx='10' cy='240' rx='14' ry='22' fill='none' stroke='%233a5432' stroke-width='1' opacity='0.35' transform='rotate(-10,10,240)'/%3E%3Ccircle cx='30' cy='120' r='3' fill='%23adc9a0' opacity='0.3'/%3E%3Ccircle cx='20' cy='200' r='2' fill='%23e4ac6a' opacity='0.25'/%3E%3Ccircle cx='35' cy='300' r='2.5' fill='%23adc9a0' opacity='0.2'/%3E%3Cline x1='20' y1='60' x2='20' y2='380' stroke='%233a5432' stroke-width='1' opacity='0.2'/%3E%3C/svg%3E") repeat-y left top;
+  pointer-events:none;
+  z-index:0;
+  opacity:.7;
+}
+body::after{
+  content:"";
+  position:fixed;
+  right:0;top:0;bottom:0;
+  width:60px;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='400' viewBox='0 0 60 400'%3E%3Cellipse cx='45' cy='80' rx='12' ry='20' fill='none' stroke='%233a5432' stroke-width='1' opacity='0.4' transform='rotate(20,45,80)'/%3E%3Cellipse cx='35' cy='160' rx='10' ry='18' fill='none' stroke='%236f9562' stroke-width='1' opacity='0.3' transform='rotate(-15,35,160)'/%3E%3Cellipse cx='50' cy='240' rx='14' ry='22' fill='none' stroke='%233a5432' stroke-width='1' opacity='0.35' transform='rotate(10,50,240)'/%3E%3Ccircle cx='30' cy='120' r='3' fill='%23adc9a0' opacity='0.3'/%3E%3Ccircle cx='40' cy='200' r='2' fill='%23e4ac6a' opacity='0.25'/%3E%3Ccircle cx='25' cy='300' r='2.5' fill='%23adc9a0' opacity='0.2'/%3E%3Cline x1='40' y1='60' x2='40' y2='380' stroke='%233a5432' stroke-width='1' opacity='0.2'/%3E%3C/svg%3E") repeat-y right top;
+  pointer-events:none;
+  z-index:0;
+  opacity:.7;
+}
+
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1.1rem 3rem;background:linear-gradient(to bottom,rgba(12,21,16,.97) 0%,transparent 100%)}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:.5rem 3rem;background:#1a2e1a;border-bottom:1px solid rgba(58,84,50,.4);min-height:80px}
 .nav-brand{font-family:"IM Fell English",serif;font-size:1rem;color:var(--sage-lt);text-decoration:none}
 nav ul{list-style:none;display:flex;gap:2rem;align-items:center}
 nav ul a{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--sage-lt);text-decoration:none;opacity:.75;transition:opacity .2s,color .2s}
@@ -221,7 +251,7 @@ footer{border-top:1px solid rgba(58,84,50,.2);padding:3.5rem 2rem;text-align:cen
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-brand">Emberlight Services</a>
+  <a href="#" class="nav-brand"><img src="logo2.jpg" alt="Emberlight Services" style="height:90px;width:auto;mix-blend-mode:lighten;filter:drop-shadow(0 0 12px rgba(196,124,47,.4));margin-top:-8px;"></a>
   <ul>
     <li><a href="#mission">About</a></li>
     <li><a href="#founder">Meet the Founder</a></li>
@@ -235,14 +265,19 @@ footer{border-top:1px solid rgba(58,84,50,.2);padding:3.5rem 2rem;text-align:cen
 <!-- HERO -->
 <section class="hero">
   <div class="hero-glow"></div>
-  <img src="logo.png" alt="Emberlight Services" class="hero-logo r">
+  <div class="hero-emblem r">
+    <svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg" style="width:280px;opacity:.5;margin-bottom:.5rem;">
+      <path d="M10 20 Q50 5 100 20 Q150 35 190 20" stroke="#6f9562" stroke-width="1" fill="none"/>
+      <circle cx="100" cy="20" r="3" fill="#e4ac6a" opacity=".6"/>
+      <circle cx="60" cy="14" r="2" fill="#adc9a0" opacity=".5"/>
+      <circle cx="140" cy="26" r="2" fill="#adc9a0" opacity=".5"/>
+      <ellipse cx="30" cy="16" rx="8" ry="5" stroke="#3a5432" stroke-width="1" fill="none" transform="rotate(-15,30,16)" opacity=".6"/>
+      <ellipse cx="170" cy="24" rx="8" ry="5" stroke="#3a5432" stroke-width="1" fill="none" transform="rotate(15,170,24)" opacity=".6"/>
+    </svg>
+  </div>
   <h1 class="hero-title r">Support Through Life&#8217;s Changing Seasons</h1>
   <p class="hero-sub r">We step in, so you can step closer.</p>
-  <p class="hero-lede r">
-    <strong style="color:var(--sage-lt);font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.05em;">Emberlight is</strong> compassionate in-home end-of-life support, companionship, and legacy preservation &#8212;
-    walking alongside individuals and families not just at the end, but through the months
-    and years before, so that when the final chapter arrives, everyone is ready to simply be present.
-  </p>
+  <p class="hero-lede r" style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.05rem;color:var(--sage-lt);line-height:1.9;">Emberlight is compassionate in-home end-of-life support, companionship, and legacy preservation &#8212; walking alongside individuals and families not just at the end, but through the months and years before, so that when the final chapter arrives, everyone is ready to simply be present.</p>
   <a href="#schedule" class="btn r">Book Online &#8212; Let Us Hold Space for You</a>
   <p class="hero-area-badge r">Serving Cottage Grove, OR &amp; Immediate Surrounding Areas</p>
   <div class="scroll-down">
@@ -256,24 +291,30 @@ footer{border-top:1px solid rgba(58,84,50,.2);padding:3.5rem 2rem;text-align:cen
 <!-- MISSION -->
 <section id="mission">
   <span class="eyebrow r">Our Purpose</span>
-  <h2 class="display r" style="font-size:clamp(1.9rem,3.5vw,2.8rem);margin-bottom:2.5rem;text-align:center">
-    Every life holds a story<br><em>worthy of being told</em>
+  <h2 class="display r" style="font-size:clamp(1.9rem,3.5vw,2.8rem);margin-bottom:2rem;text-align:center">
+    Care that extends<br><em>far beyond the bedside</em>
   </h2>
   <p class="mission-text r" style="text-align:center">
-    At Emberlight Services, we believe every life holds an extraordinary collection of stories
-    worth preserving. While we proudly provide compassionate end-of-life support, our purpose
-    reaches beyond life&#8217;s final chapter. Through meaningful conversation, heartfelt
-    companionship, and thoughtful legacy work, we help individuals and families
-    <em>honor the past, embrace the present, and preserve the memories, values, and experiences</em>
-    that define a life well lived.
+    At Emberlight Services, we believe care extends far beyond the bedside.
   </p>
-  <p class="mission-text r" style="margin-top:1.5rem;text-align:center">
-    Whether offering comfort and guidance during life&#8217;s most sacred transitions or walking
-    alongside someone as they reflect, remember, and record their story, our purpose is simple:
-    to bring warmth, dignity, and light to every journey.
+  <p class="mission-text r" style="margin-top:1.2rem;text-align:center">
+    Every life holds an extraordinary collection of stories, wisdom, and moments worth preserving.
+    While we proudly provide compassionate end-of-life support, our purpose reaches beyond personal care alone.
   </p>
-  <p class="mission-closing r" style="text-align:center">
-    No matter the path before you &#8212; we&#8217;re here to step in, so you can step closer.
+  <p class="mission-text r" style="margin-top:1.2rem;text-align:center">
+    We believe families shouldn&#8217;t have to choose between caring for their loved one and managing
+    the responsibilities of everyday life. By caring for both the individual and the home, we create
+    space for families to step away from the to-do lists and step back into the moments that matter most.
+  </p>
+  <p class="mission-text r" style="margin-top:1.2rem;text-align:center">
+    Whether we&#8217;re offering practical support around the home, meaningful companionship,
+    preserving a lifetime of memories through the Emberlight Legacy Collection Journal, or simply
+    sitting quietly beside someone who needs a compassionate presence, every act of care is rooted
+    in <em>dignity, warmth, and connection.</em>
+  </p>
+  <p class="mission-closing r" style="text-align:center;margin-top:2rem;">
+    Because in the end, our purpose isn&#8217;t simply to provide care.<br>
+    It&#8217;s to give families the freedom to be together.
   </p>
 </section>
 
@@ -285,23 +326,28 @@ footer{border-top:1px solid rgba(58,84,50,.2);padding:3.5rem 2rem;text-align:cen
     <div style="text-align:center;margin-bottom:3rem;">
       <span class="eyebrow r">What We Do</span>
       <h2 class="display r" style="font-size:clamp(1.8rem,3vw,2.5rem);">We walk beside you &#8212;<br><em>long before the final days</em></h2>
-      <p class="body-copy r" style="max-width:62ch;margin:1.2rem auto 0;opacity:.85;">
-        Emberlight is not just called when someone is in their final hours. We come alongside
-        families months or even years before &#8212; building trust, preserving stories, relieving
-        caregiver burden, and gently helping everyone find a steady, comfortable path forward.
-        We work <em style="color:var(--sage-lt);">alongside</em> hospice teams, filling the deeply
-        human spaces that medical care often cannot.
+      <p class="body-copy r" style="max-width:66ch;margin:1.2rem auto 0;opacity:.88;">
+        Emberlight isn&#8217;t simply called during life&#8217;s final hours. We come alongside
+        individuals and families months &#8212; or even years &#8212; before, building trusted relationships,
+        easing the responsibilities of caregiving, preserving precious stories, and helping families
+        navigate each season with confidence and compassion.
+      </p>
+      <p class="body-copy r" style="max-width:66ch;margin:1rem auto 0;opacity:.88;">
+        While hospice focuses on medical care, Emberlight focuses on the human experience &#8212;
+        providing practical support, meaningful companionship, legacy preservation, caregiver respite,
+        and guidance that allows families to spend less time managing responsibilities and more time
+        simply loving one another.
       </p>
     </div>
 
     <!-- Tab cards -->
-    <div class="what-tabs r">
+    <div class="what-tabs">
       <button class="wtab active" onclick="showTab(0)">Is This Right For Us?</button>
       <button class="wtab" onclick="showTab(1)">How We Work</button>
       <button class="wtab" onclick="showTab(2)">Our Values</button>
     </div>
 
-    <div class="wtab-panels r">
+    <div class="wtab-panels">
       <div class="wtab-panel active" id="wtab0">
         <p class="wtab-intro">Emberlight may be right for your family if you are:</p>
         <ul class="what-cards">
@@ -349,7 +395,7 @@ footer{border-top:1px solid rgba(58,84,50,.2);padding:3.5rem 2rem;text-align:cen
 <section id="founder">
   <div class="inner">
     <div class="r">
-      <img src="ona.jpg" alt="Ona Secord, founder of Emberlight Services" class="founder-photo">
+      <img src="ona.jpg" onerror="this.style.background='var(--bark)'" alt="Ona Secord, founder of Emberlight Services" class="founder-photo">
       <div class="founder-cert">
         <span class="cert-icon">&#127891;</span>
         <div class="cert-text">
@@ -411,7 +457,9 @@ footer{border-top:1px solid rgba(58,84,50,.2);padding:3.5rem 2rem;text-align:cen
 <section id="legacy">
   <div class="inner">
     <div class="journal-visual r">
-      <div class="journal-ring"><span class="journal-glyph">&#128214;</span></div>
+      <div style="width:300px;text-align:center;">
+        <img src="journal.png" alt="Emberlight Legacy Collection Journal" style="width:100%;height:auto;filter:drop-shadow(0 8px 32px rgba(0,0,0,0.6));border-radius:4px;">
+      </div>
     </div>
     <div class="r">
       <span class="eyebrow">What Makes Us Different</span>
@@ -419,28 +467,35 @@ footer{border-top:1px solid rgba(58,84,50,.2);padding:3.5rem 2rem;text-align:cen
         The Emberlight<br><em>Legacy Collection Journal</em>
       </h2>
       <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:var(--ember-lt);margin-bottom:1.2rem;line-height:1.6;">
-        This is how we honor the past and embrace the present &#8212; not just in words, but in practice.
+        Most end-of-life care focuses on comfort in the present. We also help preserve a lifetime.
       </p>
       <p class="body-copy" style="opacity:.85;">
-        Included in every visit, the Legacy Collection Journal is a dedicated hour of intentional
-        conversation &#8212; guided, gentle, and entirely focused on your loved one. Together we explore
-        the memories, relationships, and moments that have shaped who they are. These conversations
-        are documented in a personalized journal your family keeps forever.
+        The Emberlight Legacy Collection Journal is the heart of Emberlight Services and the
+        signature of our care. Included with each qualifying care plan, it is far more than a
+        journal &#8212; it is a guided journey through a person&#8217;s life: their memories,
+        relationships, values, accomplishments, and the hopes that still remain.
       </p>
       <p class="body-copy" style="margin-top:1rem;opacity:.85;">
-        This is also where we discover what still lives in the heart &#8212; hopes, unfinished
-        connections, wishes not yet spoken aloud. We create space to act on them. Whether that
-        means a letter written, a person called, a recipe recorded, or a place revisited &#8212;
-        we help make it happen. <em style="color:var(--sage-lt);">This</em> is how we walk alongside
-        families for months and years, not just days.
+        Each week, we dedicate intentional one-on-one time to meaningful conversation, documenting
+        the stories, wisdom, and experiences that have shaped your loved one&#8217;s life. Together,
+        we create a keepsake your family will treasure for generations.
       </p>
-      <ul class="j-list" style="margin-top:1.5rem;">
-        <li><span class="j-mark">&#10022;</span> Sharing meaningful meals or favorite family recipes</li>
-        <li><span class="j-mark">&#10022;</span> Writing a final letter or message to someone important</li>
-        <li><span class="j-mark">&#10022;</span> Reconnecting with someone special</li>
-        <li><span class="j-mark">&#10022;</span> Visiting meaningful places</li>
-        <li><span class="j-mark">&#10022;</span> Reflecting on life experiences and closure moments</li>
-        <li><span class="j-mark">&#10022;</span> Exploring personal wishes and experiences still held in the heart</li>
+      <p class="body-copy" style="margin-top:1rem;opacity:.85;">
+        But the journal doesn&#8217;t stop with reflection. As we learn what matters most, we begin
+        discovering the wishes that still live in the heart &#8212; the conversations waiting to happen,
+        the places worth revisiting, the traditions worth passing on. When possible, we help bring
+        those wishes to life.
+      </p>
+      <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;color:var(--sage-lt);margin-top:1.2rem;">Together we may&#8230;</p>
+      <ul class="j-list" style="margin-top:.8rem;">
+        <li><span class="j-mark">&#10022;</span> Preserve cherished family stories and traditions</li>
+        <li><span class="j-mark">&#10022;</span> Record favorite recipes and the memories behind them</li>
+        <li><span class="j-mark">&#10022;</span> Write letters for children, grandchildren, or loved ones</li>
+        <li><span class="j-mark">&#10022;</span> Reconnect with someone important</li>
+        <li><span class="j-mark">&#10022;</span> Visit meaningful places</li>
+        <li><span class="j-mark">&#10022;</span> Reflect on life&#8217;s lessons, accomplishments, and defining moments</li>
+        <li><span class="j-mark">&#10022;</span> Explore hopes, wishes, and experiences still waiting to be fulfilled</li>
+        <li><span class="j-mark">&#10022;</span> Create space for gratitude, forgiveness, peace, and closure</li>
       </ul>
     </div>
   </div>
@@ -484,7 +539,7 @@ footer{border-top:1px solid rgba(58,84,50,.2);padding:3.5rem 2rem;text-align:cen
       <span class="pkg-icon">&#127807;</span>
       <h3 class="pkg-name">The Ember Visit</h3>
       <p class="pkg-freq">Home Support + Legacy Journal &middot; 1 visit/week, 3&#8211;4 hrs</p>
-      <p class="pkg-price">$35<small>/hour</small></p>
+      <p class="pkg-price">$40<small>/hour</small></p>
       <p class="pkg-disc">&#10022; 5% off with monthly upfront payment</p>
       <p class="pkg-desc">A steady, compassionate presence each week &#8212; gently tending to daily responsibilities while creating space for what matters most: time together. Your home is refreshed, your loved one is seen and heard, and your family is free to simply be present.</p>
       <ul class="pkg-list">
@@ -502,7 +557,7 @@ footer{border-top:1px solid rgba(58,84,50,.2);padding:3.5rem 2rem;text-align:cen
       <span class="pkg-icon">&#128293;</span>
       <h3 class="pkg-name">The Steady Flame</h3>
       <p class="pkg-freq">Home Support + Legacy Journal &middot; 2&#8211;3 visits/week, 3&#8211;4 hrs</p>
-      <p class="pkg-price">$35<small>/hour</small></p>
+      <p class="pkg-price">$40<small>/hour</small></p>
       <p class="pkg-disc">&#10022; 5% off with monthly upfront payment</p>
       <p class="pkg-desc">When care needs become more frequent, families need a steady rhythm and a familiar presence. The Steady Flame creates grounding moments throughout the week while deepening the relationship between client, family, and Emberlight.</p>
       <ul class="pkg-list">
@@ -520,7 +575,7 @@ footer{border-top:1px solid rgba(58,84,50,.2);padding:3.5rem 2rem;text-align:cen
       <span class="pkg-icon">&#127982;</span>
       <h3 class="pkg-name">Carry Your Lantern</h3>
       <p class="pkg-freq">Personalized Care Plan + Legacy Journal &middot; Custom schedule</p>
-      <p class="pkg-price">From $55<small>/hour</small></p>
+      <p class="pkg-price">From $45<small>/hour</small></p>
       <p class="pkg-disc">&#10022; 5% off with monthly upfront payment</p>
       <p class="pkg-desc">No two journeys are the same. Rather than choosing from a list, we begin with a conversation &#8212; and together create a personalized care plan designed around your family&#8217;s unique needs, schedule, and priorities. As life changes, your plan can too.</p>
       <ul class="pkg-list">
@@ -559,47 +614,23 @@ footer{border-top:1px solid rgba(58,84,50,.2);padding:3.5rem 2rem;text-align:cen
       Book a free in-home or phone consult to talk about your family&#8217;s needs, ask any questions, and find out if Emberlight is the right fit. There&#8217;s no pressure and no commitment &#8212; just a warm conversation.
     </p>
 
-    <!-- GATE -->
-    <div class="sched-gate r" id="schedGate">
-      <p class="gate-q">Before scheduling, one quick question:</p>
-      <p class="gate-q" style="font-style:italic;color:var(--ember-lt);margin-top:.4rem;">
-        Will care be provided within Cottage Grove, OR<br>or the immediate surrounding areas?
+    <div class="sched-gate r">
+      <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:var(--sage-lt);line-height:1.8;margin-bottom:1.5rem;">
+        Emberlight Services is currently serving Cottage Grove, OR and surrounding areas.
+        However, if you have future plans or are beginning to explore options, we&#8217;d love
+        to connect. Give us a call and let&#8217;s have a warm conversation about what lies ahead.
       </p>
-      <p class="gate-sub">Emberlight Services currently serves Cottage Grove and very close surrounding communities only.</p>
-      <div class="gate-btns">
-        <button class="gate-yes" onclick="showCal()">Yes &#8212; let&#8217;s schedule</button>
-        <button class="gate-no" onclick="showNo()">No &#8212; we&#8217;re outside the area</button>
-      </div>
-    </div>
-
-    <!-- OUT OF AREA -->
-    <div class="sched-no" id="schedNo">
-      <p>
-        Thank you so much for reaching out &#8212; it means a great deal that you&#8217;re seeking
-        this kind of support for your family.
+      <p style="font-size:.85rem;color:var(--text-dim);margin-bottom:2rem;">
+        &#128222; <a href="tel:5415139911" style="color:var(--ember-lt);text-decoration:none;">(541) 513&#8209;9911</a>
+        &nbsp;&nbsp;&#9993; <a href="mailto:emberlightservicesllc@gmail.com" style="color:var(--ember-lt);text-decoration:none;">emberlightservicesllc@gmail.com</a>
       </p>
-      <p style="margin-top:.8rem;">
-        At this time, Emberlight Services is only able to serve Cottage Grove, OR and immediate
-        surrounding areas. If you&#8217;re outside that area and would still like to connect,
-        please email us directly at
-        <a href="mailto:emberlightservicesllc@gmail.com">emberlightservicesllc@gmail.com</a>
-        and we&#8217;ll do our best to help you find resources closer to home.
+      <p style="font-size:.9rem;color:var(--text-dim);margin-bottom:2rem;letter-spacing:.06em;">
+        Select a date and time that works for you &#8212; Ona will confirm your consult personally.
       </p>
-      <button class="sched-back" onclick="showGate()">&#8592; Go back</button>
-    </div>
-
-    <!-- CALENDAR -->
-    <div class="sched-cal" id="schedCal">
-      <p style="font-size:.8rem;color:var(--text-muted);margin-bottom:1rem;letter-spacing:.06em;">
-        Select a date and time that works for you. Ona will confirm your consult personally.
-      </p>
-      <iframe
-        src="https://calendar.app.google/9G8UGThDKnoNKfg59"
-        frameborder="0"
-        title="Book a free consult with Emberlight Services"
-        loading="lazy">
-      </iframe>
-      <button class="sched-back2" onclick="showGate()">&#8592; Back</button>
+      <a href="https://calendar.app.google/9G8UGThDKnoNKfg59" target="_blank" rel="noopener" style="display:inline-block;padding:1rem 2.8rem;border:1px solid var(--ember);color:var(--ember-lt);font-family:'Jost',sans-serif;font-weight:300;font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;text-decoration:none;transition:background .3s,color .3s;background:transparent;">
+        View Available Times &#8594;
+      </a>
+      <p style="margin-top:1.2rem;font-size:.78rem;color:var(--text-muted);">Opens in a new tab &#8212; no account required to view availability.</p>
     </div>
   </div>
 </section>
@@ -728,9 +759,21 @@ function showNo(){
 
 // What We Do tabs
 function showTab(n){
-  document.querySelectorAll(".wtab").forEach((t,i)=>t.classList.toggle("active",i===n));
-  document.querySelectorAll(".wtab-panel").forEach((p,i)=>p.classList.toggle("active",i===n));
+  var tabs = document.querySelectorAll(".wtab");
+  var panels = document.querySelectorAll(".wtab-panel");
+  tabs.forEach(function(t,i){
+    if(i===n){t.classList.add("active");}else{t.classList.remove("active");}
+  });
+  panels.forEach(function(p,i){
+    if(i===n){p.style.display="block";}else{p.style.display="none";}
+  });
 }
+// Init tabs on load
+window.addEventListener("DOMContentLoaded",function(){
+  document.querySelectorAll(".wtab-panel").forEach(function(p,i){
+    p.style.display = i===0 ? "block" : "none";
+  });
+});
 
 // Contact form
 function handleSubmit(e){
@@ -744,3 +787,12 @@ function handleSubmit(e){
 </script>
 </body>
 </html>
+Done
+Got it — select all with Ctrl+A, delete, then paste that entire block of code above. Once you've pasted it, click the green "Commit changes" button, confirm, and tell me when that's done.
+
+Then we'll move straight to uploading your three images — logo2.jpg, ona.jpg, and journal.png — all in one go. You're almost there! 🕯️
+
+
+
+You’ve used 90% of your session limit
+
