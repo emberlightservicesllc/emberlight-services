@@ -26,35 +26,40 @@ body::before{content:"";position:fixed;left:0;top:0;bottom:0;width:60px;backgrou
 body::after{content:"";position:fixed;right:0;top:0;bottom:0;width:60px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='400' viewBox='0 0 60 400'%3E%3Cellipse cx='45' cy='80' rx='12' ry='20' fill='none' stroke='%233a5432' stroke-width='1' opacity='0.4' transform='rotate(20,45,80)'/%3E%3Cellipse cx='35' cy='160' rx='10' ry='18' fill='none' stroke='%236f9562' stroke-width='1' opacity='0.3' transform='rotate(-15,35,160)'/%3E%3Cellipse cx='50' cy='240' rx='14' ry='22' fill='none' stroke='%233a5432' stroke-width='1' opacity='0.35' transform='rotate(10,50,240)'/%3E%3Ccircle cx='30' cy='120' r='3' fill='%23adc9a0' opacity='0.3'/%3E%3Ccircle cx='40' cy='200' r='2' fill='%23e4ac6a' opacity='0.25'/%3E%3Ccircle cx='25' cy='300' r='2.5' fill='%23adc9a0' opacity='0.2'/%3E%3Cline x1='40' y1='60' x2='40' y2='380' stroke='%233a5432' stroke-width='1' opacity='0.2'/%3E%3C/svg%3E") repeat-y right top;pointer-events:none;z-index:0;opacity:.7}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1rem 2rem;background:linear-gradient(to bottom,rgba(12,21,16,.95) 0%,transparent 100%);min-height:80px}
-.nav-left,.nav-right{display:flex;gap:1.8rem;align-items:center;flex:1}
-.nav-right{justify-content:flex-end}
-.nav-center{flex-shrink:0;display:flex;align-items:center;justify-content:center}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:linear-gradient(to bottom,rgba(12,21,16,.95) 0%,transparent 100%);height:160px;display:flex;align-items:center;justify-content:space-between;padding:0 2rem}
+.nav-left{display:flex;gap:2rem;align-items:center;flex:1}
+.nav-right{display:flex;gap:2rem;align-items:center;flex:1;justify-content:flex-end}
+.nav-center{flex-shrink:0;padding:0 1rem}
 .nav-center a{display:block;text-decoration:none}
-.nav-center img{height:130px;width:auto;filter:drop-shadow(0 0 30px rgba(196,124,47,.45)) drop-shadow(0 0 60px rgba(196,124,47,.2));transition:filter .3s}
-.nav-center img:hover{filter:drop-shadow(0 0 40px rgba(196,124,47,.65)) drop-shadow(0 0 80px rgba(196,124,47,.3))}
-nav a.nav-link{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--sage-lt);text-decoration:none;opacity:.75;transition:opacity .2s,color .2s;white-space:nowrap}
-nav a.nav-link:hover{opacity:1;color:var(--ember-lt)}
+.nav-center img{height:260px;width:auto;margin-top:20px;filter:drop-shadow(0 0 30px rgba(196,124,47,.5)) drop-shadow(0 0 70px rgba(196,124,47,.25));transition:filter .4s}
+.nav-center img:hover{filter:drop-shadow(0 0 50px rgba(196,124,47,.7)) drop-shadow(0 0 100px rgba(196,124,47,.35))}
+.nav-link{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--sage-lt);text-decoration:none;opacity:.75;transition:opacity .2s,color .2s;white-space:nowrap}
+.nav-link:hover{opacity:1;color:var(--ember-lt)}
 .nav-cta{padding:.45rem 1.1rem;border:1px solid rgba(200,124,47,.5);color:var(--ember-lt) !important;opacity:1 !important}
-.nav-cta:hover{background:var(--ember) !important;color:var(--forest) !important}
-.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:.5rem;z-index:301}
-.hamburger span{display:block;width:24px;height:1.5px;background:var(--sage-lt)}
-.close-menu{display:none}
+.nav-cta:hover{background:var(--ember) !important;color:var(--forest) !important;border-color:var(--ember) !important}
+
+/* HAMBURGER — hidden on desktop */
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:.5rem;z-index:301;position:absolute;right:1.5rem;top:1.5rem}
+.hamburger span{display:block;width:26px;height:1.5px;background:var(--sage-lt)}
+
+/* MOBILE OVERLAY — hidden by default always */
+.mobile-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(12,21,16,.97);z-index:400;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem}
+.mobile-overlay.open{display:flex}
+.mobile-overlay a{font-size:1rem;letter-spacing:.22em;text-transform:uppercase;color:var(--sage-lt);text-decoration:none;opacity:.85}
+.mobile-overlay a:hover{color:var(--ember-lt);opacity:1}
+.mobile-overlay .nav-cta{border:1px solid rgba(200,124,47,.5);padding:.6rem 1.8rem;color:var(--ember-lt) !important;opacity:1 !important}
+.close-btn{position:absolute;top:1.5rem;right:1.5rem;background:none;border:none;color:var(--sage-lt);font-size:1.6rem;cursor:pointer;line-height:1}
+
 @media(max-width:860px){
-  nav{padding:.8rem 1.5rem}
+  nav{height:100px;padding:0 1.5rem}
   .nav-left,.nav-right{display:none}
-  .nav-center img{height:90px}
-  .hamburger{display:flex;position:absolute;right:1.5rem;top:50%;transform:translateY(-50%)}
-  nav ul.mobile-open{display:flex;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(12,21,16,.97);flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;z-index:300;list-style:none;padding:0;margin:0}
-  .close-menu{display:block;position:absolute;top:1.5rem;right:1.5rem;background:none;border:none;color:var(--sage-lt);font-size:1.5rem;cursor:pointer;z-index:301}
-  .mobile-menu-list{display:none}
-  .mobile-menu-list a{font-size:1rem;letter-spacing:.2em;text-transform:uppercase;color:var(--sage-lt);text-decoration:none}
-  .mobile-menu-list .nav-cta{border:1px solid rgba(200,124,47,.5);padding:.6rem 1.5rem}
+  .nav-center img{height:140px;margin-top:10px}
+  .hamburger{display:flex}
 }
 
 /* HERO */
-.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:14rem 2rem 5rem;position:relative;overflow:hidden}
-.hero-glow{position:absolute;top:40%;left:50%;transform:translate(-50%,-50%);width:700px;height:700px;background:radial-gradient(ellipse,rgba(196,124,47,.12) 0%,transparent 65%);pointer-events:none}
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:18rem 2rem 5rem;position:relative;overflow:hidden}
+.hero-glow{position:absolute;top:35%;left:50%;transform:translate(-50%,-50%);width:700px;height:700px;background:radial-gradient(ellipse,rgba(196,124,47,.12) 0%,transparent 65%);pointer-events:none}
 .hero-title{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:300;font-size:clamp(1.6rem,3.5vw,2.4rem);color:var(--sage-lt);margin-bottom:.6rem}
 .hero-sub{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:clamp(1rem,2vw,1.3rem);color:var(--ember-lt);margin-bottom:2rem;opacity:.85}
 .hero-lede{max-width:60ch;font-family:"Cormorant Garamond",serif;font-style:italic;font-size:1.05rem;color:var(--sage-lt);line-height:1.9;margin-bottom:2.5rem}
@@ -181,6 +186,7 @@ footer{border-top:1px solid rgba(58,84,50,.2);padding:3.5rem 2rem;text-align:cen
   #founder .inner{grid-template-columns:1fr}
   .pkg-grid{grid-template-columns:1fr}
   .pkg.hot{margin:0}
+  .hero{padding:12rem 2rem 5rem}
 }
 @media(prefers-reduced-motion:reduce){
   .scroll-down{animation:none}
@@ -205,21 +211,21 @@ footer{border-top:1px solid rgba(58,84,50,.2);padding:3.5rem 2rem;text-align:cen
     <a href="#schedule" class="nav-link">Book a Consult</a>
     <a href="#contact" class="nav-link nav-cta">Contact</a>
   </div>
-  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+  <button class="hamburger" onclick="openMenu()" aria-label="Open menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
-<!-- MOBILE MENU -->
-<ul class="mobile-menu-list" id="mobileMenu">
-  <button class="close-menu" onclick="toggleMenu()">&#10005;</button>
-  <li><a href="#mission" onclick="toggleMenu()">About</a></li>
-  <li><a href="#founder" onclick="toggleMenu()">Meet the Founder</a></li>
-  <li><a href="#packages" onclick="toggleMenu()">Services</a></li>
-  <li><a href="#legacy" onclick="toggleMenu()">Legacy Journal</a></li>
-  <li><a href="#schedule" onclick="toggleMenu()">Book a Consult</a></li>
-  <li><a href="#contact" class="nav-cta" onclick="toggleMenu()">Contact</a></li>
-</ul>
+<!-- MOBILE OVERLAY — completely separate from nav -->
+<div class="mobile-overlay" id="mobileOverlay">
+  <button class="close-btn" onclick="closeMenu()">&#10005;</button>
+  <a href="#mission" onclick="closeMenu()">About</a>
+  <a href="#founder" onclick="closeMenu()">Meet the Founder</a>
+  <a href="#packages" onclick="closeMenu()">Services</a>
+  <a href="#legacy" onclick="closeMenu()">Legacy Journal</a>
+  <a href="#schedule" onclick="closeMenu()">Book a Consult</a>
+  <a href="#contact" class="nav-cta" onclick="closeMenu()">Contact</a>
+</div>
 
 <!-- HERO -->
 <section class="hero">
@@ -528,16 +534,11 @@ footer{border-top:1px solid rgba(58,84,50,.2);padding:3.5rem 2rem;text-align:cen
 </footer>
 
 <script>
-function toggleMenu(){
-  var menu=document.getElementById("mobileMenu");
-  menu.classList.toggle("mobile-open");
-  document.body.style.overflow=menu.classList.contains("mobile-open")?"hidden":"";
-}
+function openMenu(){document.getElementById("mobileOverlay").classList.add("open");document.body.style.overflow="hidden";}
+function closeMenu(){document.getElementById("mobileOverlay").classList.remove("open");document.body.style.overflow="";}
 function showTab(n){
-  var tabs=document.querySelectorAll(".wtab");
-  var panels=document.querySelectorAll(".wtab-panel");
-  tabs.forEach(function(t,i){if(i===n){t.classList.add("active");}else{t.classList.remove("active");}});
-  panels.forEach(function(p,i){p.style.display=i===n?"block":"none";});
+  document.querySelectorAll(".wtab").forEach(function(t,i){if(i===n){t.classList.add("active");}else{t.classList.remove("active");}});
+  document.querySelectorAll(".wtab-panel").forEach(function(p,i){p.style.display=i===n?"block":"none";});
 }
 window.addEventListener("DOMContentLoaded",function(){
   document.querySelectorAll(".wtab-panel").forEach(function(p,i){p.style.display=i===0?"block":"none";});
