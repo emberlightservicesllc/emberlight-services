@@ -26,10 +26,42 @@ body::before{content:"";position:fixed;left:0;top:0;bottom:0;width:60px;backgrou
 body::after{content:"";position:fixed;right:0;top:0;bottom:0;width:60px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='400' viewBox='0 0 60 400'%3E%3Cellipse cx='45' cy='80' rx='12' ry='20' fill='none' stroke='%233a5432' stroke-width='1' opacity='0.4' transform='rotate(20,45,80)'/%3E%3Cellipse cx='35' cy='160' rx='10' ry='18' fill='none' stroke='%236f9562' stroke-width='1' opacity='0.3' transform='rotate(-15,35,160)'/%3E%3Cellipse cx='50' cy='240' rx='14' ry='22' fill='none' stroke='%233a5432' stroke-width='1' opacity='0.35' transform='rotate(10,50,240)'/%3E%3Ccircle cx='30' cy='120' r='3' fill='%23adc9a0' opacity='0.3'/%3E%3Ccircle cx='40' cy='200' r='2' fill='%23e4ac6a' opacity='0.25'/%3E%3Ccircle cx='25' cy='300' r='2.5' fill='%23adc9a0' opacity='0.2'/%3E%3Cline x1='40' y1='60' x2='40' y2='380' stroke='%233a5432' stroke-width='1' opacity='0.2'/%3E%3C/svg%3E") repeat-y right top;pointer-events:none;z-index:0;opacity:.7}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:200;background:linear-gradient(to bottom,rgba(12,21,16,.95) 0%,transparent 100%);height:160px;display:flex;align-items:center;justify-content:space-between;padding:0 2rem}
-.nav-left{display:flex;gap:2rem;align-items:center;flex:1}
-.nav-right{display:flex;gap:2rem;align-items:center;flex:1;justify-content:flex-end}
-.nav-center{flex-shrink:0;padding:0 1rem}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;height:160px;display:flex;align-items:center;justify-content:space-between;padding:0 2rem}
+
+/* Gradient that fades from forest color to transparent — covers the bottom of the nav area */
+nav::before{
+  content:"";
+  position:absolute;
+  top:0;left:0;right:0;
+  height:100%;
+  background:linear-gradient(to bottom,
+    rgba(12,21,16,1) 0%,
+    rgba(12,21,16,0.9) 40%,
+    rgba(12,21,16,0.5) 75%,
+    rgba(12,21,16,0) 100%
+  );
+  z-index:-1;
+  pointer-events:none;
+}
+
+/* Extra fade below nav to further cushion content */
+nav::after{
+  content:"";
+  position:absolute;
+  top:100%;
+  left:0;right:0;
+  height:120px;
+  background:linear-gradient(to bottom,
+    rgba(12,21,16,0.7) 0%,
+    rgba(12,21,16,0) 100%
+  );
+  z-index:-1;
+  pointer-events:none;
+}
+
+.nav-left{display:flex;gap:2rem;align-items:center;flex:1;position:relative;z-index:1}
+.nav-right{display:flex;gap:2rem;align-items:center;flex:1;justify-content:flex-end;position:relative;z-index:1}
+.nav-center{flex-shrink:0;padding:0 1rem;position:relative;z-index:1}
 .nav-center a{display:block;text-decoration:none}
 .nav-center img{height:260px;width:auto;margin-top:20px;filter:drop-shadow(0 0 30px rgba(196,124,47,.5)) drop-shadow(0 0 70px rgba(196,124,47,.25));transition:filter .4s}
 .nav-center img:hover{filter:drop-shadow(0 0 50px rgba(196,124,47,.7)) drop-shadow(0 0 100px rgba(196,124,47,.35))}
@@ -38,11 +70,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:linear-gradient(t
 .nav-cta{padding:.45rem 1.1rem;border:1px solid rgba(200,124,47,.5);color:var(--ember-lt) !important;opacity:1 !important}
 .nav-cta:hover{background:var(--ember) !important;color:var(--forest) !important;border-color:var(--ember) !important}
 
-/* HAMBURGER — hidden on desktop */
+/* HAMBURGER */
 .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:.5rem;z-index:301;position:absolute;right:1.5rem;top:1.5rem}
 .hamburger span{display:block;width:26px;height:1.5px;background:var(--sage-lt)}
 
-/* MOBILE OVERLAY — hidden by default always */
+/* MOBILE OVERLAY */
 .mobile-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(12,21,16,.97);z-index:400;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem}
 .mobile-overlay.open{display:flex}
 .mobile-overlay a{font-size:1rem;letter-spacing:.22em;text-transform:uppercase;color:var(--sage-lt);text-decoration:none;opacity:.85}
@@ -57,8 +89,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:linear-gradient(t
   .hamburger{display:flex}
 }
 
-/* HERO */
-.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:18rem 2rem 5rem;position:relative;overflow:hidden}
+/* HERO — extra top padding so content starts well below the large logo */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20rem 2rem 5rem;position:relative;overflow:hidden}
 .hero-glow{position:absolute;top:35%;left:50%;transform:translate(-50%,-50%);width:700px;height:700px;background:radial-gradient(ellipse,rgba(196,124,47,.12) 0%,transparent 65%);pointer-events:none}
 .hero-title{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:300;font-size:clamp(1.6rem,3.5vw,2.4rem);color:var(--sage-lt);margin-bottom:.6rem}
 .hero-sub{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:clamp(1rem,2vw,1.3rem);color:var(--ember-lt);margin-bottom:2rem;opacity:.85}
@@ -186,7 +218,7 @@ footer{border-top:1px solid rgba(58,84,50,.2);padding:3.5rem 2rem;text-align:cen
   #founder .inner{grid-template-columns:1fr}
   .pkg-grid{grid-template-columns:1fr}
   .pkg.hot{margin:0}
-  .hero{padding:12rem 2rem 5rem}
+  .hero{padding:14rem 2rem 5rem}
 }
 @media(prefers-reduced-motion:reduce){
   .scroll-down{animation:none}
@@ -216,7 +248,7 @@ footer{border-top:1px solid rgba(58,84,50,.2);padding:3.5rem 2rem;text-align:cen
   </button>
 </nav>
 
-<!-- MOBILE OVERLAY — completely separate from nav -->
+<!-- MOBILE OVERLAY -->
 <div class="mobile-overlay" id="mobileOverlay">
   <button class="close-btn" onclick="closeMenu()">&#10005;</button>
   <a href="#mission" onclick="closeMenu()">About</a>
