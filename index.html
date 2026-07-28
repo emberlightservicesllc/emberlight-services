@@ -22,57 +22,51 @@ body{background:var(--forest);color:var(--text);font-family:"Jost",sans-serif;fo
 .body-copy{font-size:1rem;color:var(--text);line-height:1.9}
 .divider{display:flex;align-items:center;gap:1.5rem;padding:0 max(2rem,8vw);color:var(--moss)}
 .divider-line{flex:1;height:1px;background:var(--moss);opacity:.3}
-body::before{content:"";position:fixed;left:0;top:0;bottom:0;width:60px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='400' viewBox='0 0 60 400'%3E%3Cellipse cx='15' cy='80' rx='12' ry='20' fill='none' stroke='%233a5432' stroke-width='1' opacity='0.4' transform='rotate(-20,15,80)'/%3E%3Cellipse cx='25' cy='160' rx='10' ry='18' fill='none' stroke='%236f9562' stroke-width='1' opacity='0.3' transform='rotate(15,25,160)'/%3E%3Cellipse cx='10' cy='240' rx='14' ry='22' fill='none' stroke='%233a5432' stroke-width='1' opacity='0.35' transform='rotate(-10,10,240)'/%3E%3Ccircle cx='30' cy='120' r='3' fill='%23adc9a0' opacity='0.3'/%3E%3Ccircle cx='20' cy='200' r='2' fill='%23e4ac6a' opacity='0.25'/%3E%3Ccircle cx='35' cy='300' r='2.5' fill='%23adc9a0' opacity='0.2'/%3E%3Cline x1='20' y1='60' x2='20' y2='380' stroke='%233a5432' stroke-width='1' opacity='0.2'/%3E%3C/svg%3E") repeat-y left top;pointer-events:none;z-index:0;opacity:.7}
-body::after{content:"";position:fixed;right:0;top:0;bottom:0;width:60px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='400' viewBox='0 0 60 400'%3E%3Cellipse cx='45' cy='80' rx='12' ry='20' fill='none' stroke='%233a5432' stroke-width='1' opacity='0.4' transform='rotate(20,45,80)'/%3E%3Cellipse cx='35' cy='160' rx='10' ry='18' fill='none' stroke='%236f9562' stroke-width='1' opacity='0.3' transform='rotate(-15,35,160)'/%3E%3Cellipse cx='50' cy='240' rx='14' ry='22' fill='none' stroke='%233a5432' stroke-width='1' opacity='0.35' transform='rotate(10,50,240)'/%3E%3Ccircle cx='30' cy='120' r='3' fill='%23adc9a0' opacity='0.3'/%3E%3Ccircle cx='40' cy='200' r='2' fill='%23e4ac6a' opacity='0.25'/%3E%3Ccircle cx='25' cy='300' r='2.5' fill='%23adc9a0' opacity='0.2'/%3E%3Cline x1='40' y1='60' x2='40' y2='380' stroke='%233a5432' stroke-width='1' opacity='0.2'/%3E%3C/svg%3E") repeat-y right top;pointer-events:none;z-index:0;opacity:.7}
 
-/* ── NAV — centered, logo in middle, links split either side ── */
+/* ── SIDE BORDERS — ivy vine filigree with embers ── */
+body::before,body::after{
+  content:"";
+  position:fixed;top:0;bottom:0;
+  width:72px;
+  pointer-events:none;
+  z-index:10;
+  opacity:.55;
+}
+body::before{
+  left:0;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='700' viewBox='0 0 72 700'%3E%3C!-- main ivy vine --%3E%3Cpath d='M38 0 C32 35 44 70 34 110 C24 150 46 185 30 225 C14 265 44 295 28 335 C12 375 42 410 26 450 C10 490 40 525 30 565 C20 605 38 640 36 700' stroke='%233a5432' stroke-width='1.4' fill='none' opacity='0.8'/%3E%3C!-- secondary vine --%3E%3Cpath d='M28 20 C22 55 36 90 24 130 C12 170 34 200 20 240 C6 280 28 315 14 355 C0 395 22 430 10 470' stroke='%232d4820' stroke-width='0.8' fill='none' opacity='0.5'/%3E%3C!-- ivy sprigs left --%3E%3Cpath d='M34 55 C22 48 10 44 2 36' stroke='%234a6e38' stroke-width='1' fill='none' opacity='0.7'/%3E%3Cpath d='M30 130 C18 124 6 128 0 120' stroke='%234a6e38' stroke-width='1' fill='none' opacity='0.65'/%3E%3Cpath d='M28 205 C16 200 4 204 0 196' stroke='%234a6e38' stroke-width='1' fill='none' opacity='0.6'/%3E%3Cpath d='M26 280 C14 274 2 278 0 270' stroke='%234a6e38' stroke-width='1' fill='none' opacity='0.65'/%3E%3Cpath d='M28 355 C16 349 4 353 0 345' stroke='%234a6e38' stroke-width='1' fill='none' opacity='0.6'/%3E%3Cpath d='M24 430 C12 424 0 427 0 420' stroke='%234a6e38' stroke-width='1' fill='none' opacity='0.55'/%3E%3Cpath d='M26 505 C14 500 2 503 0 496' stroke='%234a6e38' stroke-width='1' fill='none' opacity='0.55'/%3E%3Cpath d='M28 580 C16 574 4 578 0 570' stroke='%234a6e38' stroke-width='1' fill='none' opacity='0.5'/%3E%3C!-- ivy sprigs right --%3E%3Cpath d='M36 90 C48 83 60 78 68 70' stroke='%234a6e38' stroke-width='1' fill='none' opacity='0.65'/%3E%3Cpath d='M32 165 C44 158 56 162 64 154' stroke='%234a6e38' stroke-width='1' fill='none' opacity='0.6'/%3E%3Cpath d='M30 240 C42 234 54 238 62 230' stroke='%234a6e38' stroke-width='1' fill='none' opacity='0.65'/%3E%3Cpath d='M28 315 C40 308 52 312 62 305' stroke='%234a6e38' stroke-width='1' fill='none' opacity='0.6'/%3E%3Cpath d='M26 390 C38 384 50 387 60 380' stroke='%234a6e38' stroke-width='1' fill='none' opacity='0.55'/%3E%3Cpath d='M28 465 C40 458 52 462 62 455' stroke='%234a6e38' stroke-width='1' fill='none' opacity='0.55'/%3E%3Cpath d='M26 540 C38 533 50 537 62 530' stroke='%234a6e38' stroke-width='1' fill='none' opacity='0.5'/%3E%3C!-- ivy leaves left (teardrop shapes) --%3E%3Cellipse cx='4' cy='38' rx='8' ry='5' fill='%232d4820' opacity='0.75' transform='rotate(-40 4 38)'/%3E%3Cellipse cx='2' cy='122' rx='8' ry='5' fill='%233a5432' opacity='0.7' transform='rotate(-25 2 122)'/%3E%3Cellipse cx='0' cy='198' rx='9' ry='5' fill='%232d4820' opacity='0.65' transform='rotate(-30 0 198)'/%3E%3Cellipse cx='1' cy='272' rx='8' ry='5' fill='%233a5432' opacity='0.7' transform='rotate(-35 1 272)'/%3E%3Cellipse cx='2' cy='347' rx='8' ry='5' fill='%232d4820' opacity='0.65' transform='rotate(-28 2 347)'/%3E%3Cellipse cx='1' cy='422' rx='8' ry='5' fill='%233a5432' opacity='0.62' transform='rotate(-32 1 422)'/%3E%3Cellipse cx='2' cy='498' rx='8' ry='5' fill='%232d4820' opacity='0.58' transform='rotate(-26 2 498)'/%3E%3Cellipse cx='2' cy='572' rx='7' ry='4' fill='%233a5432' opacity='0.55' transform='rotate(-30 2 572)'/%3E%3C!-- ivy leaves right --%3E%3Cellipse cx='68' cy='72' rx='8' ry='5' fill='%232d4820' opacity='0.7' transform='rotate(35 68 72)'/%3E%3Cellipse cx='64' cy='156' rx='8' ry='5' fill='%233a5432' opacity='0.65' transform='rotate(25 64 156)'/%3E%3Cellipse cx='62' cy='232' rx='9' ry='5' fill='%232d4820' opacity='0.68' transform='rotate(30 62 232)'/%3E%3Cellipse cx='62' cy='307' rx='8' ry='5' fill='%233a5432' opacity='0.65' transform='rotate(28 62 307)'/%3E%3Cellipse cx='60' cy='382' rx='8' ry='5' fill='%232d4820' opacity='0.62' transform='rotate(32 60 382)'/%3E%3Cellipse cx='62' cy='457' rx='8' ry='5' fill='%233a5432' opacity='0.58' transform='rotate(26 62 457)'/%3E%3Cellipse cx='62' cy='532' rx='8' ry='5' fill='%232d4820' opacity='0.55' transform='rotate(30 62 532)'/%3E%3C!-- small secondary leaves --%3E%3Cellipse cx='16' cy='50' rx='5' ry='3' fill='%235a8048' opacity='0.55' transform='rotate(-20 16 50)'/%3E%3Cellipse cx='12' cy='138' rx='5' ry='3' fill='%235a8048' opacity='0.5' transform='rotate(-15 12 138)'/%3E%3Cellipse cx='50' cy='95' rx='5' ry='3' fill='%235a8048' opacity='0.5' transform='rotate(22 50 95)'/%3E%3Cellipse cx='54' cy='172' rx='5' ry='3' fill='%235a8048' opacity='0.48' transform='rotate(18 54 172)'/%3E%3Cellipse cx='14' cy='215' rx='5' ry='3' fill='%235a8048' opacity='0.48' transform='rotate(-18 14 215)'/%3E%3Cellipse cx='52' cy='248' rx='5' ry='3' fill='%235a8048' opacity='0.48' transform='rotate(20 52 248)'/%3E%3C!-- original circles (kept) --%3E%3Ccircle cx='30' cy='120' r='3' fill='none' stroke='%23adc9a0' stroke-width='0.8' opacity='0.35'/%3E%3Ccircle cx='20' cy='200' r='2' fill='%23e4ac6a' opacity='0.28'/%3E%3Ccircle cx='35' cy='300' r='2.5' fill='none' stroke='%23adc9a0' stroke-width='0.8' opacity='0.3'/%3E%3Ccircle cx='18' cy='380' r='2' fill='%23e4ac6a' opacity='0.25'/%3E%3Ccircle cx='32' cy='460' r='3' fill='none' stroke='%23adc9a0' stroke-width='0.8' opacity='0.28'/%3E%3C!-- ember glow dots --%3E%3Ccircle cx='22' cy='68' r='1.5' fill='%23e4ac6a' opacity='0.55'/%3E%3Ccircle cx='48' cy='145' r='1.2' fill='%23c47c2f' opacity='0.48'/%3E%3Ccircle cx='16' cy='222' r='1.5' fill='%23e4ac6a' opacity='0.45'/%3E%3Ccircle cx='52' cy='298' r='1.2' fill='%23c47c2f' opacity='0.42'/%3E%3Ccircle cx='20' cy='372' r='1.5' fill='%23e4ac6a' opacity='0.45'/%3E%3Ccircle cx='50' cy='448' r='1.2' fill='%23c47c2f' opacity='0.4'/%3E%3Ccircle cx='18' cy='524' r='1.5' fill='%23e4ac6a' opacity='0.38'/%3E%3Ccircle cx='46' cy='598' r='1.2' fill='%23c47c2f' opacity='0.35'/%3E%3C!-- inner glow line --%3E%3Cline x1='68' y1='0' x2='68' y2='700' stroke='%23c47c2f' stroke-width='0.4' opacity='0.15'/%3E%3C/svg%3E") repeat-y left top;
+}
+body::after{
+  right:0;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='700' viewBox='0 0 72 700'%3E%3C!-- main ivy vine --%3E%3Cpath d='M34 0 C40 35 28 70 38 110 C48 150 26 185 42 225 C58 265 28 295 44 335 C60 375 30 410 46 450 C62 490 32 525 42 565 C52 605 34 640 36 700' stroke='%233a5432' stroke-width='1.4' fill='none' opacity='0.8'/%3E%3C!-- secondary vine --%3E%3Cpath d='M44 20 C50 55 36 90 48 130 C60 170 38 200 52 240 C66 280 44 315 58 355 C72 395 50 430 62 470' stroke='%232d4820' stroke-width='0.8' fill='none' opacity='0.5'/%3E%3C!-- ivy sprigs right --%3E%3Cpath d='M38 55 C50 48 62 44 70 36' stroke='%234a6e38' stroke-width='1' fill='none' opacity='0.7'/%3E%3Cpath d='M42 130 C54 124 66 128 72 120' stroke='%234a6e38' stroke-width='1' fill='none' opacity='0.65'/%3E%3Cpath d='M44 205 C56 200 68 204 72 196' stroke='%234a6e38' stroke-width='1' fill='none' opacity='0.6'/%3E%3Cpath d='M46 280 C58 274 70 278 72 270' stroke='%234a6e38' stroke-width='1' fill='none' opacity='0.65'/%3E%3Cpath d='M44 355 C56 349 68 353 72 345' stroke='%234a6e38' stroke-width='1' fill='none' opacity='0.6'/%3E%3Cpath d='M48 430 C60 424 72 427 72 420' stroke='%234a6e38' stroke-width='1' fill='none' opacity='0.55'/%3E%3Cpath d='M46 505 C58 500 70 503 72 496' stroke='%234a6e38' stroke-width='1' fill='none' opacity='0.55'/%3E%3Cpath d='M44 580 C56 574 68 578 72 570' stroke='%234a6e38' stroke-width='1' fill='none' opacity='0.5'/%3E%3C!-- ivy sprigs left --%3E%3Cpath d='M36 90 C24 83 12 78 4 70' stroke='%234a6e38' stroke-width='1' fill='none' opacity='0.65'/%3E%3Cpath d='M40 165 C28 158 16 162 8 154' stroke='%234a6e38' stroke-width='1' fill='none' opacity='0.6'/%3E%3Cpath d='M42 240 C30 234 18 238 10 230' stroke='%234a6e38' stroke-width='1' fill='none' opacity='0.65'/%3E%3Cpath d='M44 315 C32 308 20 312 10 305' stroke='%234a6e38' stroke-width='1' fill='none' opacity='0.6'/%3E%3Cpath d='M46 390 C34 384 22 387 12 380' stroke='%234a6e38' stroke-width='1' fill='none' opacity='0.55'/%3E%3Cpath d='M44 465 C32 458 20 462 10 455' stroke='%234a6e38' stroke-width='1' fill='none' opacity='0.55'/%3E%3Cpath d='M46 540 C34 533 22 537 10 530' stroke='%234a6e38' stroke-width='1' fill='none' opacity='0.5'/%3E%3C!-- ivy leaves right --%3E%3Cellipse cx='68' cy='38' rx='8' ry='5' fill='%232d4820' opacity='0.75' transform='rotate(40 68 38)'/%3E%3Cellipse cx='70' cy='122' rx='8' ry='5' fill='%233a5432' opacity='0.7' transform='rotate(25 70 122)'/%3E%3Cellipse cx='72' cy='198' rx='9' ry='5' fill='%232d4820' opacity='0.65' transform='rotate(30 72 198)'/%3E%3Cellipse cx='71' cy='272' rx='8' ry='5' fill='%233a5432' opacity='0.7' transform='rotate(35 71 272)'/%3E%3Cellipse cx='70' cy='347' rx='8' ry='5' fill='%232d4820' opacity='0.65' transform='rotate(28 70 347)'/%3E%3Cellipse cx='71' cy='422' rx='8' ry='5' fill='%233a5432' opacity='0.62' transform='rotate(32 71 422)'/%3E%3Cellipse cx='70' cy='498' rx='8' ry='5' fill='%232d4820' opacity='0.58' transform='rotate(26 70 498)'/%3E%3Cellipse cx='70' cy='572' rx='7' ry='4' fill='%233a5432' opacity='0.55' transform='rotate(30 70 572)'/%3E%3C!-- ivy leaves left --%3E%3Cellipse cx='4' cy='72' rx='8' ry='5' fill='%232d4820' opacity='0.7' transform='rotate(-35 4 72)'/%3E%3Cellipse cx='8' cy='156' rx='8' ry='5' fill='%233a5432' opacity='0.65' transform='rotate(-25 8 156)'/%3E%3Cellipse cx='10' cy='232' rx='9' ry='5' fill='%232d4820' opacity='0.68' transform='rotate(-30 10 232)'/%3E%3Cellipse cx='10' cy='307' rx='8' ry='5' fill='%233a5432' opacity='0.65' transform='rotate(-28 10 307)'/%3E%3Cellipse cx='12' cy='382' rx='8' ry='5' fill='%232d4820' opacity='0.62' transform='rotate(-32 12 382)'/%3E%3Cellipse cx='10' cy='457' rx='8' ry='5' fill='%233a5432' opacity='0.58' transform='rotate(-26 10 457)'/%3E%3Cellipse cx='10' cy='532' rx='8' ry='5' fill='%232d4820' opacity='0.55' transform='rotate(-30 10 532)'/%3E%3C!-- small secondary leaves --%3E%3Cellipse cx='56' cy='50' rx='5' ry='3' fill='%235a8048' opacity='0.55' transform='rotate(20 56 50)'/%3E%3Cellipse cx='60' cy='138' rx='5' ry='3' fill='%235a8048' opacity='0.5' transform='rotate(15 60 138)'/%3E%3Cellipse cx='22' cy='95' rx='5' ry='3' fill='%235a8048' opacity='0.5' transform='rotate(-22 22 95)'/%3E%3Cellipse cx='18' cy='172' rx='5' ry='3' fill='%235a8048' opacity='0.48' transform='rotate(-18 18 172)'/%3E%3Cellipse cx='58' cy='215' rx='5' ry='3' fill='%235a8048' opacity='0.48' transform='rotate(18 58 215)'/%3E%3Cellipse cx='20' cy='248' rx='5' ry='3' fill='%235a8048' opacity='0.48' transform='rotate(-20 20 248)'/%3E%3C!-- original circles (kept) --%3E%3Ccircle cx='42' cy='120' r='3' fill='none' stroke='%23adc9a0' stroke-width='0.8' opacity='0.35'/%3E%3Ccircle cx='52' cy='200' r='2' fill='%23e4ac6a' opacity='0.28'/%3E%3Ccircle cx='37' cy='300' r='2.5' fill='none' stroke='%23adc9a0' stroke-width='0.8' opacity='0.3'/%3E%3Ccircle cx='54' cy='380' r='2' fill='%23e4ac6a' opacity='0.25'/%3E%3Ccircle cx='40' cy='460' r='3' fill='none' stroke='%23adc9a0' stroke-width='0.8' opacity='0.28'/%3E%3C!-- ember glow dots --%3E%3Ccircle cx='50' cy='68' r='1.5' fill='%23e4ac6a' opacity='0.55'/%3E%3Ccircle cx='24' cy='145' r='1.2' fill='%23c47c2f' opacity='0.48'/%3E%3Ccircle cx='56' cy='222' r='1.5' fill='%23e4ac6a' opacity='0.45'/%3E%3Ccircle cx='20' cy='298' r='1.2' fill='%23c47c2f' opacity='0.42'/%3E%3Ccircle cx='52' cy='372' r='1.5' fill='%23e4ac6a' opacity='0.45'/%3E%3Ccircle cx='22' cy='448' r='1.2' fill='%23c47c2f' opacity='0.4'/%3E%3Ccircle cx='54' cy='524' r='1.5' fill='%23e4ac6a' opacity='0.38'/%3E%3Ccircle cx='26' cy='598' r='1.2' fill='%23c47c2f' opacity='0.35'/%3E%3C!-- inner glow line --%3E%3Cline x1='4' y1='0' x2='4' y2='700' stroke='%23c47c2f' stroke-width='0.4' opacity='0.15'/%3E%3C/svg%3E") repeat-y right top;
+}
+
+/* ── FLOATING EMBER CANVAS ── */
+#ember-canvas{
+  position:fixed;top:0;left:0;width:100%;height:100%;
+  pointer-events:none;z-index:11;
+}
+
+/* ── NAV — logo centered, 3 links each side, solid opaque background ── */
 nav{
   position:fixed;top:0;left:0;right:0;z-index:200;
   display:flex;align-items:center;justify-content:center;
-  padding:1rem 2rem;
-  background:linear-gradient(to bottom,rgba(12,21,16,.95) 0%,transparent 100%);
+  padding:.9rem 2rem;
+  background:rgba(12,21,16,1);
+  border-bottom:1px solid rgba(58,84,50,.3);
   gap:0;
-  pointer-events:none;
 }
-nav>*{pointer-events:auto}
-.nav-left{
-  display:flex;gap:2.2rem;align-items:center;
-  justify-content:flex-end;flex:1;
-  padding-right:1.5rem;
-}
-.nav-center{
-  flex-shrink:0;
-  display:flex;align-items:center;justify-content:center;
-}
-.nav-center img{
-  height:110px;width:auto;
-  filter:drop-shadow(0 0 18px rgba(196,124,47,.35)) drop-shadow(0 0 40px rgba(196,124,47,.15));
-  transition:filter .3s;display:block;
-}
-.nav-center img:hover{
-  filter:drop-shadow(0 0 28px rgba(196,124,47,.52)) drop-shadow(0 0 60px rgba(196,124,47,.22));
-}
+.nav-left{display:flex;gap:2.2rem;align-items:center;justify-content:flex-end;flex:1;padding-right:1.5rem}
+.nav-center{flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.nav-center img{height:90px;width:auto;filter:drop-shadow(0 0 14px rgba(196,124,47,.32));transition:filter .3s;display:block}
+.nav-center img:hover{filter:drop-shadow(0 0 22px rgba(196,124,47,.5))}
 .nav-center a{text-decoration:none;display:block}
-.nav-right{
-  display:flex;gap:2.2rem;align-items:center;
-  justify-content:flex-start;flex:1;
-  padding-left:1.5rem;
-}
-.nav-link{
-  font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;
-  color:var(--sage-lt);text-decoration:none;opacity:.75;
-  transition:opacity .2s,color .2s;white-space:nowrap;
-}
+.nav-right{display:flex;gap:2.2rem;align-items:center;justify-content:flex-start;flex:1;padding-left:1.5rem}
+.nav-link{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--sage-lt);text-decoration:none;opacity:.75;transition:opacity .2s,color .2s;white-space:nowrap}
 .nav-link:hover{opacity:1;color:var(--ember-lt)}
-.nav-cta{
-  padding:.4rem 1rem;
-  border:1px solid rgba(200,124,47,.5);
-  color:var(--ember-lt)!important;opacity:1!important;
-}
+.nav-cta{padding:.4rem 1rem;border:1px solid rgba(200,124,47,.5);color:var(--ember-lt)!important;opacity:1!important}
 .nav-cta:hover{background:var(--ember)!important;color:var(--forest)!important;border-color:var(--ember)!important}
-
-/* HAMBURGER */
-.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:.5rem;position:absolute;right:1.5rem;top:1rem;z-index:301}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:.5rem;position:absolute;right:1.5rem;top:50%;transform:translateY(-50%);z-index:301}
 .hamburger span{display:block;width:24px;height:1.5px;background:var(--sage-lt)}
 
 /* MOBILE OVERLAY */
@@ -82,17 +76,17 @@ nav>*{pointer-events:auto}
 .mobile-overlay a:hover{color:var(--ember-lt)}
 .mobile-overlay .nav-cta{border:1px solid rgba(200,124,47,.5);padding:.6rem 1.8rem;color:var(--ember-lt)!important;opacity:1!important}
 .close-btn{position:absolute;top:1.5rem;right:1.5rem;background:none;border:none;color:var(--sage-lt);font-size:1.6rem;cursor:pointer}
-
 @media(max-width:900px){
   .nav-left,.nav-right,.nav-center{display:none}
   .hamburger{display:flex}
   nav{justify-content:flex-start;padding:.8rem 1.5rem}
 }
 
-/* ── LOGO SECTION — standalone, below nav ── */
+/* ── LOGO SECTION — standalone, below nav. No duplicate in hero. ── */
 .logo-section{
   width:100%;
-  padding:7rem 2rem 0.5rem;
+  /* top padding = nav height so logo starts just below nav */
+  padding:5.5rem 2rem 0;
   display:flex;flex-direction:column;align-items:center;
   background:var(--forest);position:relative;z-index:1;
 }
@@ -101,33 +95,19 @@ nav>*{pointer-events:auto}
   filter:drop-shadow(0 0 28px rgba(196,124,47,.38)) drop-shadow(0 0 60px rgba(196,124,47,.16));
 }
 
-/* ── HERO — no "Emberlight Services" heading, just tagline and lede ── */
+/* ── HERO — tightened gap to logo ── */
 .hero{
   width:100%;display:flex;flex-direction:column;align-items:center;
-  text-align:center;padding:1rem 2rem 6rem;position:relative;
+  text-align:center;
+  /* reduced top padding for compact feel */
+  padding:.5rem 2rem 6rem;
+  position:relative;
 }
-.hero-glow{
-  position:absolute;top:0;left:50%;transform:translateX(-50%);
-  width:700px;height:500px;
-  background:radial-gradient(ellipse,rgba(196,124,47,.08) 0%,transparent 70%);
-  pointer-events:none;z-index:0;
-}
+.hero-glow{position:absolute;top:0;left:50%;transform:translateX(-50%);width:700px;height:500px;background:radial-gradient(ellipse,rgba(196,124,47,.08) 0%,transparent 70%);pointer-events:none;z-index:0}
 .hero>*{position:relative;z-index:1}
-.hero-title{
-  font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:300;
-  font-size:clamp(1.3rem,2.8vw,2rem);
-  color:var(--sage-lt);margin-bottom:.5rem;
-}
-.hero-sub{
-  font-family:"Cormorant Garamond",serif;font-style:italic;
-  font-size:clamp(.95rem,1.8vw,1.3rem);
-  color:var(--ember-lt);margin-bottom:2.5rem;opacity:.88;
-}
-.hero-lede{
-  max-width:62ch;font-family:"Cormorant Garamond",serif;font-style:italic;
-  font-size:clamp(1rem,1.5vw,1.15rem);color:var(--sage-lt);
-  line-height:1.9;margin-bottom:2.5rem;opacity:.88;
-}
+.hero-title{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:300;font-size:clamp(1.3rem,2.8vw,2rem);color:var(--sage-lt);margin-bottom:.4rem}
+.hero-sub{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:clamp(.95rem,1.8vw,1.3rem);color:var(--ember-lt);margin-bottom:2.5rem;opacity:.88}
+.hero-lede{max-width:62ch;font-family:"Cormorant Garamond",serif;font-style:italic;font-size:clamp(1rem,1.5vw,1.15rem);color:var(--sage-lt);line-height:1.9;margin-bottom:2.5rem;opacity:.88}
 .btn{display:inline-block;padding:.85rem 2.4rem;border:1px solid var(--ember);color:var(--ember-lt);font-family:"Jost",sans-serif;font-weight:300;font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;text-decoration:none;transition:background .3s,color .3s;cursor:pointer;background:transparent}
 .btn:hover{background:var(--ember);color:var(--forest)}
 .hero-area-badge{margin-top:1.8rem;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--text-muted);display:flex;align-items:center;gap:.6rem}
@@ -255,10 +235,10 @@ footer{border-top:1px solid rgba(58,84,50,.2);padding:3.5rem 2rem;text-align:cen
   #founder .inner{grid-template-columns:1fr}
   .pkg-grid{grid-template-columns:1fr}
   .pkg.hot{margin:0}
-  .logo-section{padding-top:4rem}
+  .logo-section{padding-top:4.5rem}
 }
 @media(max-width:600px){
-  .hero{padding:1rem 1.5rem 4rem}
+  .hero{padding:.5rem 1.5rem 4rem}
 }
 @media(prefers-reduced-motion:reduce){
   .scroll-hint{animation:none}
@@ -268,7 +248,10 @@ footer{border-top:1px solid rgba(58,84,50,.2);padding:3.5rem 2rem;text-align:cen
 </head>
 <body>
 
-<!-- NAV — logo centered, 3 links each side -->
+<!-- FLOATING EMBER CANVAS -->
+<canvas id="ember-canvas"></canvas>
+
+<!-- NAV — solid opaque, logo centered, 3 links each side -->
 <nav>
   <div class="nav-left">
     <a href="#mission" class="nav-link">About</a>
@@ -299,12 +282,12 @@ footer{border-top:1px solid rgba(58,84,50,.2);padding:3.5rem 2rem;text-align:cen
   <a href="#contact" class="nav-cta" onclick="closeMenu()">Contact</a>
 </div>
 
-<!-- LOGO SECTION — large centered logo, below nav -->
+<!-- LOGO SECTION — one large logo, no duplicate -->
 <div class="logo-section">
   <img src="logo_clean.png" alt="Emberlight Services">
 </div>
 
-<!-- HERO — no "Emberlight Services" heading, tagline leads -->
+<!-- HERO — compact gap, no heading duplicate -->
 <section class="hero">
   <div class="hero-glow"></div>
   <p class="hero-title r">Support Through Life&#8217;s Changing Seasons</p>
@@ -622,8 +605,11 @@ footer{border-top:1px solid rgba(58,84,50,.2);padding:3.5rem 2rem;text-align:cen
 </footer>
 
 <script>
+// ── MOBILE MENU ──
 function openMenu(){document.getElementById("mobileOverlay").classList.add("open");document.body.style.overflow="hidden";}
 function closeMenu(){document.getElementById("mobileOverlay").classList.remove("open");document.body.style.overflow="";}
+
+// ── TABS ──
 function showTab(n){
   document.querySelectorAll(".wtab").forEach(function(t,i){if(i===n){t.classList.add("active");}else{t.classList.remove("active");}});
   document.querySelectorAll(".wtab-panel").forEach(function(p,i){p.style.display=i===n?"block":"none";});
@@ -631,9 +617,93 @@ function showTab(n){
 window.addEventListener("DOMContentLoaded",function(){
   document.querySelectorAll(".wtab-panel").forEach(function(p,i){p.style.display=i===0?"block":"none";});
 });
+
+// ── SCROLL REVEAL ──
 const els=document.querySelectorAll(".r");
 const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("on");obs.unobserve(e.target);}});},{threshold:.08,rootMargin:"0px 0px -30px 0px"});
 els.forEach(el=>obs.observe(el));
+
+// ── FLOATING EMBERS ──
+(function(){
+  var canvas=document.getElementById("ember-canvas");
+  var ctx=canvas.getContext("2d");
+  var W,H,embers=[];
+  var GUTTER=80; // confine to side gutters only
+
+  function resize(){
+    W=canvas.width=window.innerWidth;
+    H=canvas.height=window.innerHeight;
+  }
+  resize();
+  window.addEventListener("resize",resize);
+
+  function Ember(){
+    // spawn on left or right gutter only
+    this.side=Math.random()<0.5?"left":"right";
+    this.reset();
+  }
+  Ember.prototype.reset=function(){
+    if(this.side==="left"){
+      this.x=Math.random()*GUTTER;
+    } else {
+      this.x=W-Math.random()*GUTTER;
+    }
+    this.y=H+Math.random()*40;
+    this.r=Math.random()*1.6+0.4;
+    this.speed=Math.random()*0.5+0.2;
+    this.drift=(Math.random()-0.5)*0.35;
+    this.life=1;
+    this.decay=Math.random()*0.004+0.002;
+    // warm amber/gold palette
+    var hues=["rgba(228,172,106,","rgba(196,124,47,","rgba(200,150,80,","rgba(240,190,120,"];
+    this.color=hues[Math.floor(Math.random()*hues.length)];
+  };
+  Ember.prototype.update=function(){
+    this.y-=this.speed;
+    this.x+=this.drift;
+    this.life-=this.decay;
+    if(this.life<=0||this.y<-10){this.reset();}
+  };
+  Ember.prototype.draw=function(){
+    ctx.save();
+    ctx.globalAlpha=this.life*0.55;
+    ctx.beginPath();
+    // soft glow
+    var grad=ctx.createRadialGradient(this.x,this.y,0,this.x,this.y,this.r*3);
+    grad.addColorStop(0,this.color+"0.9)");
+    grad.addColorStop(0.5,this.color+"0.4)");
+    grad.addColorStop(1,this.color+"0)");
+    ctx.fillStyle=grad;
+    ctx.arc(this.x,this.y,this.r*3,0,Math.PI*2);
+    ctx.fill();
+    // bright core
+    ctx.globalAlpha=this.life*0.85;
+    ctx.beginPath();
+    ctx.fillStyle=this.color+"1)";
+    ctx.arc(this.x,this.y,this.r*0.6,0,Math.PI*2);
+    ctx.fill();
+    ctx.restore();
+  };
+
+  // create embers — more on each side
+  for(var i=0;i<38;i++){
+    var e=new Ember();
+    e.y=Math.random()*H; // stagger initial positions
+    embers.push(e);
+  }
+
+  function animate(){
+    ctx.clearRect(0,0,W,H);
+    embers.forEach(function(e){e.update();e.draw();});
+    requestAnimationFrame(animate);
+  }
+  animate();
+
+  // re-assign sides on resize
+  window.addEventListener("resize",function(){
+    embers.forEach(function(e){e.reset();});
+  });
+})();
 </script>
 </body>
 </html>
